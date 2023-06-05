@@ -608,6 +608,9 @@ add_customization "Glucose Based Application Factor (PR 1988)" "ab_ramp" "messag
 add_customization "Glucose Based Application Factor (PR 1988) with Modified CustomTypeOne LoopPatches" "ab_ramp_cto"
 add_customization "Profiles (PR 2002)" "profile" "message_for_pr2002"
 
+add_customization "New method for 1988" "test_1988" ""
+add_customization "New method for 2002" "test_2002" ""
+
 patch_menu
 # *** End of inlined file: src/CustomizationSelect.sh ***
 
