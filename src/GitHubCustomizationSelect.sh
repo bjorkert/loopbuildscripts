@@ -36,7 +36,7 @@ do
     do
         if [[ "${folder[$i]}" == "$arg" ]]
         then
-            apply_patch "$i"
+            apply_patch_github "$i"
             break
         fi
     done

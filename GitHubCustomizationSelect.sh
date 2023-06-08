@@ -357,6 +357,22 @@ function apply_patch {
     refresh_status
 }
 
+function apply_patch_github {
+    local index=$1
+    local patch_file="${patch[$index]}"
+    local customization_name="${customization[$index]}"
+    if [ -f "$patch_file" ]; then
+        if git apply --whitespace=nowarn "$patch_file"; then
+            echo -e "${SUCCESS_FONT}  Customization $customization_name applied successfully${NC}"
+        else
+            echo -e "${ERROR_FONT}  Failed to apply customization $customization_name${NC}"
+        fi
+    else
+        echo -e "${ERROR_FONT}  Patch file for customization $customization_name not available${NC}"
+    fi
+    refresh_status
+}
+
 function revert_patch {
     local index=$1
     local patch_file="${patch[$index]}"
@@ -583,7 +599,7 @@ do
     do
         if [[ "${folder[$i]}" == "$arg" ]]
         then
-            apply_patch "$i"
+            apply_patch_github "$i"
             break
         fi
     done
